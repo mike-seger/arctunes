@@ -40,126 +40,10 @@
                 android:id="@+id/control_gestures"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_above="@+id/control_box"
-                android:gestureColor="@android:color/transparent"
-                android:uncertainGestureColor="@android:color/transparent">
+            android:gestureColor="@android:color/transparent"
+                android:uncertainGestureColor="@android:color/transparent"
+            android:layout_alignTop="@+id/rating_bar">
         </android.gesture.GestureOverlayView>
-
-        <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/control_box"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="67dp">
-
-            <org.tunesremote.SquareCover
-                    android:id="@+id/cover"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="45dp"
-                    android:scaleType="fitXY"/>
-
-            <LinearLayout
-                    android:id="@+id/info_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/cover"
-                    android:layout_alignRight="@+id/cover"
-                    android:background="#a000"
-                    android:orientation="vertical"
-                    android:padding="10dip">
-
-                <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/track"
-                        android:textAllCaps="true"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                <TextView
-                        android:id="@+id/info_title"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:ellipsize="end"
-                        android:text="Track name goes here"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-                <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/artist"
-                        android:textAllCaps="true"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                <TextView
-                        android:id="@+id/info_artist"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="Artist goes here"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-                <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="album"
-                        android:textAllCaps="true"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                <TextView
-                        android:id="@+id/info_album"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Album goes here"
-                        android:textAppearance="?android:attr/textAppearanceMedium"/>
-            </LinearLayout>
-
-            <RelativeLayout
-                    android:id="@+id/seek_box"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/cover"
-                    android:layout_alignLeft="@+id/cover"
-                    android:layout_alignRight="@+id/cover"
-                    android:background="#a000"
-                    android:minWidth="200dp"
-                    android:orientation="vertical"
-                    android:paddingBottom="10dip"
-                    android:paddingLeft="10dip"
-                    android:paddingRight="10dip">
-
-                <TextView
-                        android:id="@+id/seek_position"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:minWidth="24dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                <TextView
-                        android:id="@+id/seek_remain"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:minWidth="24dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                <SeekBar
-                        android:id="@+id/seek"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/seek_remain"
-                        android:layout_toRightOf="@+id/seek_position"
-                        android:padding="5dip"/>
-            </RelativeLayout>
-        </RelativeLayout>
 
         <LinearLayout
                 android:id="@+id/control_box"
@@ -174,9 +58,9 @@
             <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:minHeight="72dp">
+                android:gravity="center_horizontal"
+                    android:minHeight="72dp"
+                android:layout_weight="0.74">
 
                 <ViewStub
                         android:id="@+id/isHorizView"
@@ -216,8 +100,7 @@
                     android:id="@+id/control_buttons"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
+                android:layout_weight="2.61"
                     android:gravity="center"
                     android:minHeight="72dp"
                     android:orientation="horizontal">
@@ -250,25 +133,159 @@
                         android:contentDescription="Next track button"
                         android:minWidth="72dp"
                         android:src="@drawable/btn_next"/>
+
             </LinearLayout>
 
-            <RelativeLayout
-                    android:id="@+id/rating_box"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                <RatingBar
-                        android:id="@+id/rating_bar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerHorizontal="true"
-                        android:numStars="5"
-                        android:stepSize="0.5"
-                        android:visibility="invisible"/>
-            </RelativeLayout>
         </LinearLayout>
+
+        <RatingBar
+                android:id="@+id/rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            android:numStars="5"
+                android:stepSize="0.5"
+                android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/control_box" />
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/control_box">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/seek_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            android:background="#a000"
+                android:minWidth="200dp"
+                android:orientation="vertical"
+                android:paddingBottom="10dip"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+            android:layout_alignBottom="@+id/relativeLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/control_gestures">
+
+            <TextView
+                    android:id="@+id/seek_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:minWidth="32dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="25dp" />
+
+            <TextView
+                    android:id="@+id/seek_remain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:minWidth="32dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="25dp" />
+
+            <SeekBar
+                    android:id="@+id/seek"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:indeterminate="false"
+                android:layout_alignParentBottom="true"
+                android:layout_alignLeft="@+id/seek_position" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+                android:id="@+id/info_box"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+            android:orientation="vertical"
+                android:padding="10dip"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/rating_bar">
+
+            <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/track"
+                    android:textAllCaps="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <TextView
+                    android:id="@+id/info_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:ellipsize="end"
+                    android:text="Track name goes here"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40dp" />
+
+            <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/artist"
+                    android:textAllCaps="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <TextView
+                    android:id="@+id/info_artist"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Artist goes here"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40dp" />
+
+            <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="album"
+                    android:textAllCaps="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <TextView
+                    android:id="@+id/info_album"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Album goes here"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:id="@+id/rating_box"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+            android:layout_alignLeft="@+id/seek_box"
+            android:layout_alignBottom="@+id/relativeLayout"
+            android:layout_below="@+id/seek_box">
+
+        </RelativeLayout>
+
     </org.tunesremote.FadeView>
+
+    <org.tunesremote.SquareCover
+            android:id="@+id/cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_gravity="right"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="930dp"
+        android:layout_marginBottom="291dp" />
 
 </RelativeLayout>
