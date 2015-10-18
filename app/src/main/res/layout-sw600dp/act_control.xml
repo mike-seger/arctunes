@@ -118,27 +118,27 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1">
 
-                    <ImageButton
-                            android:id="@+id/control_shuffle"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:contentDescription="Shuffle button"
-                            android:minWidth="72dp"
-                            android:src="@drawable/btn_shuffle"/>
+                    <!--<ImageButton-->
+                            <!--android:id="@+id/control_shuffle"-->
+                            <!--android:layout_width="0dp"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:background="@null"-->
+                            <!--android:contentDescription="Shuffle button"-->
+                            <!--android:minWidth="72dp"-->
+                            <!--android:src="@drawable/btn_shuffle"/>-->
 
-                    <ImageButton
-                            android:id="@+id/control_repeat"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginRight="12dp"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:contentDescription="Repeat song button"
-                            android:minWidth="72dp"
-                            android:src="@drawable/btn_repeat"/>
+                    <!--<ImageButton-->
+                            <!--android:id="@+id/control_repeat"-->
+                            <!--android:layout_width="0dp"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_marginLeft="12dp"-->
+                            <!--android:layout_marginRight="12dp"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:background="@null"-->
+                            <!--android:contentDescription="Repeat song button"-->
+                            <!--android:minWidth="72dp"-->
+                            <!--android:src="@drawable/btn_repeat"/>-->
 
                     <!-- <ImageButton -->
                     <!-- android:id="@+id/control_speaker" -->

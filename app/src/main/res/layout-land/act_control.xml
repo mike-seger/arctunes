@@ -71,13 +71,13 @@
                     android:minHeight="72dip"
                     android:orientation="horizontal">
 
-                <ImageButton
-                        android:id="@+id/control_shuffle"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="#00000000"
-                        android:src="@drawable/btn_shuffle"/>
+                <!--<ImageButton-->
+                        <!--android:id="@+id/control_shuffle"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="#00000000"-->
+                        <!--android:src="@drawable/btn_shuffle"/>-->
 
                 <ImageButton
                         android:id="@+id/control_prev"
@@ -103,13 +103,13 @@
                         android:background="#00000000"
                         android:src="@drawable/btn_next"/>
 
-                <ImageButton
-                        android:id="@+id/control_repeat"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="#00000000"
-                        android:src="@drawable/btn_repeat"/>
+                <!--<ImageButton-->
+                        <!--android:id="@+id/control_repeat"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="#00000000"-->
+                        <!--android:src="@drawable/btn_repeat"/>-->
             </LinearLayout>
         </RelativeLayout>
 

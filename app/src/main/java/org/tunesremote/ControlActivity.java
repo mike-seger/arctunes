@@ -25,17 +25,6 @@
 
 package org.tunesremote;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.tunesremote.daap.Response;
-import org.tunesremote.daap.Session;
-import org.tunesremote.daap.Speaker;
-import org.tunesremote.daap.Status;
-import org.tunesremote.util.Helper;
-import org.tunesremote.util.NotificationService;
-import org.tunesremote.util.ThreadExecutor;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -84,6 +73,7 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
@@ -91,6 +81,17 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.tunesremote.daap.Response;
+import org.tunesremote.daap.Session;
+import org.tunesremote.daap.Speaker;
+import org.tunesremote.daap.Status;
+import org.tunesremote.util.Helper;
+import org.tunesremote.util.NotificationService;
+import org.tunesremote.util.ThreadExecutor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Main activity of TunesRemote. This controls the player and drives all the
@@ -116,11 +117,11 @@ public class ControlActivity extends Activity implements GestureOverlayView.OnGe
    protected static Status status;
    protected String showingAlbumId, artScale = null;
    protected RatingBar ratingBar;
-   protected RelativeLayout ratingBox;
+   protected LinearLayout ratingBox;
    protected TextView trackName, trackArtist, trackAlbum, seekPosition, seekRemain;
    protected SeekBar seekBar;
    protected ImageView coverImage;
-   protected ImageButton controlPrev, controlPause, controlNext, controlShuffle, controlRepeat;
+   protected ImageButton controlPrev, controlPause, controlNext/*, controlShuffle, controlRepeat*/;
    protected View volume;
    protected ProgressBar volumeBar;
    protected GestureOverlayView gestures;
@@ -293,8 +294,8 @@ public class ControlActivity extends Activity implements GestureOverlayView.OnGe
             break;
          }
 
-         checkShuffle();
-         checkRepeat();
+//         checkShuffle();
+//         checkRepeat();
       }
    };
 
@@ -751,61 +752,61 @@ public class ControlActivity extends Activity implements GestureOverlayView.OnGe
     * Use to check the repeat status and button state, without altering it
     * unlike {@link checkSetRepeat()}
     */
-   protected void checkRepeat() {
+//   protected void checkRepeat() {
+//
+//      if (session == null || status == null)
+//         return;
+//
+//      switch (status.getRepeat()) {
+//
+//      case Status.REPEAT_OFF: // go to single
+//         repeat.setLevel(0);
+//         break;
+//
+//      case Status.REPEAT_SINGLE: // go to all
+//         repeat.setLevel(2);
+//         break;
+//
+//      case Status.REPEAT_ALL: // go to off
+//         repeat.setLevel(1);
+//         break;
+//
+//      }
+//
+//   }
 
-      if (session == null || status == null)
-         return;
-
-      switch (status.getRepeat()) {
-
-      case Status.REPEAT_OFF: // go to single
-         repeat.setLevel(0);
-         break;
-
-      case Status.REPEAT_SINGLE: // go to all
-         repeat.setLevel(2);
-         break;
-
-      case Status.REPEAT_ALL: // go to off
-         repeat.setLevel(1);
-         break;
-
-      }
-
-   }
-
-   protected void checkSetRepeat() {
-
-      if (session == null || status == null)
-         return;
-
-      switch (status.getRepeat()) {
-
-      case Status.REPEAT_OFF: // go to single
-         session.controlRepeat(Status.REPEAT_SINGLE);
-         repeatToast.setText(R.string.control_menu_repeat_one);
-         repeat.setLevel(2);
-         break;
-
-      case Status.REPEAT_SINGLE: // go to all
-         session.controlRepeat(Status.REPEAT_ALL);
-         repeatToast.setText(R.string.control_menu_repeat_all);
-         repeat.setLevel(1);
-         break;
-
-      case Status.REPEAT_ALL: // go to off
-         session.controlRepeat(Status.REPEAT_OFF);
-         repeatToast.setText(R.string.control_menu_repeat_none);
-         repeat.setLevel(0);
-         break;
-
-      }
-
-      if (showToast) {
-         repeatToast.show();
-      }
-
-   }
+//   protected void checkSetRepeat() {
+//
+//      if (session == null || status == null)
+//         return;
+//
+//      switch (status.getRepeat()) {
+//
+//      case Status.REPEAT_OFF: // go to single
+//         session.controlRepeat(Status.REPEAT_SINGLE);
+//         repeatToast.setText(R.string.control_menu_repeat_one);
+//         repeat.setLevel(2);
+//         break;
+//
+//      case Status.REPEAT_SINGLE: // go to all
+//         session.controlRepeat(Status.REPEAT_ALL);
+//         repeatToast.setText(R.string.control_menu_repeat_all);
+//         repeat.setLevel(1);
+//         break;
+//
+//      case Status.REPEAT_ALL: // go to off
+//         session.controlRepeat(Status.REPEAT_OFF);
+//         repeatToast.setText(R.string.control_menu_repeat_none);
+//         repeat.setLevel(0);
+//         break;
+//
+//      }
+//
+//      if (showToast) {
+//         repeatToast.show();
+//      }
+//
+//   }
 
    protected void checkShuffle() {
 
@@ -863,7 +864,7 @@ public class ControlActivity extends Activity implements GestureOverlayView.OnGe
       this.trackArtist = (TextView) findViewById(R.id.info_artist);
       this.trackAlbum = (TextView) findViewById(R.id.info_album);
       this.ratingBar = (RatingBar) findViewById(R.id.rating_bar);
-      this.ratingBox = (RelativeLayout) findViewById(R.id.rating_box);
+      this.ratingBox = (LinearLayout) findViewById(R.id.rating_box);
       this.showRatingBox = prefs.getBoolean(this.getString(R.string.pref_showrating), true);
       if (!this.showRatingBox) {
          ratingBox.setVisibility(View.GONE);
@@ -893,11 +894,11 @@ public class ControlActivity extends Activity implements GestureOverlayView.OnGe
       this.controlPause = (ImageButton) findViewById(R.id.control_pause);
       this.controlNext = (ImageButton) findViewById(R.id.control_next);
 
-      this.controlShuffle = (ImageButton) findViewById(R.id.control_shuffle);
-      this.controlRepeat = (ImageButton) findViewById(R.id.control_repeat);
-
-      shuffle = (LevelListDrawable) controlShuffle.getDrawable();
-      repeat = (LevelListDrawable) controlRepeat.getDrawable();
+//      this.controlShuffle = (ImageButton) findViewById(R.id.control_shuffle);
+//      this.controlRepeat = (ImageButton) findViewById(R.id.control_repeat);
+//
+//      shuffle = (LevelListDrawable) controlShuffle.getDrawable();
+//      repeat = (LevelListDrawable) controlRepeat.getDrawable();
 
       this.seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
          public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
@@ -958,25 +959,25 @@ public class ControlActivity extends Activity implements GestureOverlayView.OnGe
          }
       });
 
-      this.controlRepeat.setOnClickListener(new OnClickListener() {
+//      this.controlRepeat.setOnClickListener(new OnClickListener() {
+//
+//         @Override
+//         public void onClick(View v) {
+//            checkSetRepeat();
+//         }
+//
+//      });
+//      checkRepeat();
 
-         @Override
-         public void onClick(View v) {
-            checkSetRepeat();
-         }
-
-      });
-      checkRepeat();
-
-      this.controlShuffle.setOnClickListener(new OnClickListener() {
-
-         @Override
-         public void onClick(View v) {
-            checkSetShuffle();
-         }
-
-      });
-      checkShuffle();
+//      this.controlShuffle.setOnClickListener(new OnClickListener() {
+//
+//         @Override
+//         public void onClick(View v) {
+//            checkSetShuffle();
+//         }
+//
+//      });
+//      checkShuffle();
 
       this.fadeview = (FadeView) findViewById(R.id.fadeview);
       this.fadeview.startFade();
@@ -999,7 +1000,7 @@ public class ControlActivity extends Activity implements GestureOverlayView.OnGe
       }
       Status.screenHeight = largestDimen;
 
-      this.ratingBox = (RelativeLayout) findViewById(R.id.rating_box);
+      this.ratingBox = (LinearLayout) findViewById(R.id.rating_box);
       this.showRatingBox = prefs.getBoolean(this.getString(R.string.pref_showrating), true);
       if (!this.showRatingBox) {
          ratingBox.setVisibility(View.GONE);
